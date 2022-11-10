@@ -28,10 +28,15 @@
         ]]>
     </select>
 
+<!--    sql 쿼리문 안에서 컬러명이 각각 달라지는 이유 -->
+<!--    1. db에서 사용하는 명명법과 java에서 사용하는 명명법이 다름 -->
+<!--    2. application.properties 를 통해서 카멜명명법을 사용한다고 설정 -->
+<!--    3. parameterType, resultType에 Java dto class를 사용한다고 설정했기 때문에 해당 클래스의 멤버 변수명을 사용-->
+<!--    4. Mapper 파일에서 @Param 어노테이션을 사용하여 변수명을 설정할 경우 해당 변수명을 사용해야 함-->
     <insert id="insertBoard" parameterType="com.bitc.board.dto.BoardDto">
         <![CDATA[
         INSERT INTO t_board (title, contents, pwd, user_id, create_dt)
-        VALUES (#{title}, #{contents}, #{pwd}, #{userId}, NOW())
+        VALUES (#{title}, #{contents}, '1234', #{userId}, NOW())
         ]]>
     </insert>
 

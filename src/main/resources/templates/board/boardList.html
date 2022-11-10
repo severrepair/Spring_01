@@ -14,6 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
+<!--                <p th:text="${dataList}"></p>-->
                 <table class="table table-hover table-striped">
                     <colgroup>
                         <col width="10%">
@@ -35,7 +36,7 @@
                     <tr th:if="${#lists.size(dataList)} > 0" th:each="list : ${dataList}">
                         <td th:text="${list.idx}"></td>
                         <td>
-                            <a href="/board/openBoardDetail.do?idx=" th:attrappend="href=${list.idx}" th:text="${list.title}"></a>
+                            <a href="/board/openBoardDetail?idx=" th:attrappend="href=${list.idx}" th:text="${list.title}"></a>
                         </td>
                         <td th:text="${list.userId}"></td>
                         <td th:text="${list.createDt}"></td>
@@ -46,6 +47,11 @@
                     </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm d-flex justify-content-end">
+                <a href="/board/boardWrite" class="btn btn-outline-primary">글쓰기</a>
             </div>
         </div>
     </div>
